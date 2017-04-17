@@ -91,8 +91,7 @@ let calculateSugarForSimpleSyrup (amount: float<fluidOunce>) =
     let cupsNeeded = amount / 1.5 * cupsPerFlOz * cupsSugarPerCup
     let wholeCupsNeeded = roundDownMeasure cupsNeeded
     let remainderCupsNeeded = cupsNeeded - (wholeCupsNeeded |> float |> FloatWithMeasure )
-    let ingredient = { Whole = wholeCupsNeeded; Part = remainderCupsNeeded }
-    ingredient
+    { Whole = wholeCupsNeeded; Part = remainderCupsNeeded }
 
 let calculateMintForSimpleSyrup (amount: float<fluidOunce>) =
     amount * cupsPerFlOz / cupsPerBunchMint * ozPerBunchMint    
@@ -103,15 +102,14 @@ type ShoppingList =
 
 type SimpleSyrupRecipe = 
     { Amount: float<fluidOunce>; }
-    member this.Water = calculateWaterForSimpleSyrup this.Amount //this.Amount / 1.5 * cupsPerFlOz
-    member this.Sugar = calculateSugarForSimpleSyrup this.Amount //this.Amount / 1.5 * cupsPerFlOz * cupsSugarPerCup
-    member this.Mint = calculateMintForSimpleSyrup this.Amount //this.Amount / 1.5<fluidOunce/bunchMint> * ozPerBunchMint
+    member this.Water = calculateWaterForSimpleSyrup this.Amount
+    member this.Sugar = calculateSugarForSimpleSyrup this.Amount
+    member this.Mint = calculateMintForSimpleSyrup this.Amount
 
 let calculateRumForMojitos (rumNeeded: float<fluidOunce>) =
     let liquorBottlesNeeded = rumNeeded / fluidOzPerLiter / litersInLargeLiquorBottle
     let fullBottlesNeeded = liquorBottlesNeeded |> roundDownMeasure
     let partialBottlesNeeded = liquorBottlesNeeded - (fullBottlesNeeded |> float |> FloatWithMeasure)
-    // figure out, from the partial bottle, how much in floz and then how much in cups
     let partialCups = partialBottlesNeeded * litersInLargeLiquorBottle * fluidOzPerLiter * cupsPerFlOz
     { Whole = fullBottlesNeeded; Part = partialCups }
 
@@ -133,7 +131,3 @@ type MojitoRecipe =
     member this.Soda = calculateSodaForMojitos this.Amounts.Soda
     member this.SimpleSyrup = { Amount = this.Amounts.SimpleSyrup }
     member this.LimeJuice = calculateLimeJuiceForMojitos this.Amounts.LimeJuice
-
-
-//let rumBottlesToBuy (rum: float<fluidOunce>) = 
-    
