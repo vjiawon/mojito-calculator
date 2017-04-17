@@ -6,6 +6,7 @@ open Measurements
 open LanguagePrimitives
 open System
 open System.IO
+open UnitOfMeasureHelpers
 
 let buildShoppingList (parts: MojitoRecipeParts<fluidOunce>) =   
     { Rum = parts.Rum / fluidOzPerLiter / litersInLargeLiquorBottle |> roundUpMeasure;

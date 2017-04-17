@@ -1,6 +1,7 @@
 ﻿module Measurements
 
 open LanguagePrimitives
+open UnitOfMeasureHelpers
 
 [<Measure>] type oz
 
@@ -48,21 +49,6 @@ let ozPerBunchMint = 3.2<oz/bunchMint>
 let cupsSugarPerLb = 2.25<cupSugar/lb>
 
 let cupsPerBunchMint = 1.5<cup/bunchMint>
-
-// 1 pound of granulated sugar contains approximately 2 1/4 cups of sugar
-
-// utilities
-let roundUpMeasure<[<Measure>] 'u>(x: float<'u>): int<'u> = 
-    float x |> ceil |> int |> Int32WithMeasure
-
-let roundDownMeasure<[<Measure>] 'u>(x: float<'u>): int<'u> = 
-    float x |> floor |> int |> Int32WithMeasure
-
-let toIntMeasure<[<Measure>] 'u>(x: float<'u>): int<'u> = 
-    x |> int |> Int32WithMeasure
-
-let toFloatMeasure<[<Measure>] 'u>(x: int<'u>): float<'u> = 
-    x |> float |> FloatWithMeasure
 
 // types
 
