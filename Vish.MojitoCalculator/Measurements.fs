@@ -70,8 +70,7 @@ let calculateWaterForSimpleSyrup (amount: float<fluidOunce>) =
     let cupsNeeded = amount / 1.5 * cupsPerFlOz
     let wholeCupsNeeded = roundDownMeasure cupsNeeded
     let remainderCupsNeeded = cupsNeeded - (wholeCupsNeeded |> float |> FloatWithMeasure )
-    let ingredient = { Whole = wholeCupsNeeded; Part = remainderCupsNeeded }
-    ingredient
+    { Whole = wholeCupsNeeded; Part = remainderCupsNeeded }
 
 let calculateSugarForSimpleSyrup (amount: float<fluidOunce>) =
     let cupsNeeded = amount / 1.5 * cupsPerFlOz * cupsSugarPerCup
