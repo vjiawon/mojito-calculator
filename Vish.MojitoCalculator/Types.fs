@@ -19,13 +19,13 @@ type Ingredient<[<Measure>] 'whole, [<Measure>] 'part> =
 let calculateWaterForSimpleSyrup (amount: float<fluidOunce>) =
     let cupsNeeded = amount / 1.5 * cupsPerFlOz
     let wholeCupsNeeded = roundDownMeasure cupsNeeded
-    let remainderCupsNeeded = cupsNeeded - (wholeCupsNeeded |> float |> FloatWithMeasure )
+    let remainderCupsNeeded = cupsNeeded - (wholeCupsNeeded |> toFloatMeasure )
     { Whole = wholeCupsNeeded; Part = remainderCupsNeeded }
 
 let calculateSugarForSimpleSyrup (amount: float<fluidOunce>) =
     let cupsNeeded = amount / 1.5 * cupsPerFlOz * cupsSugarPerCup
     let wholeCupsNeeded = roundDownMeasure cupsNeeded
-    let remainderCupsNeeded = cupsNeeded - (wholeCupsNeeded |> float |> FloatWithMeasure )
+    let remainderCupsNeeded = cupsNeeded - (wholeCupsNeeded |> toFloatMeasure )
     { Whole = wholeCupsNeeded; Part = remainderCupsNeeded }
 
 let calculateMintForSimpleSyrup (amount: float<fluidOunce>) =
@@ -44,7 +44,7 @@ type SimpleSyrupRecipe =
 let calculateRumForMojitos (rumNeeded: float<fluidOunce>) =
     let liquorBottlesNeeded = rumNeeded / fluidOzPerLiter / litersInLargeLiquorBottle
     let fullBottlesNeeded = liquorBottlesNeeded |> roundDownMeasure
-    let partialBottlesNeeded = liquorBottlesNeeded - (fullBottlesNeeded |> float |> FloatWithMeasure)
+    let partialBottlesNeeded = liquorBottlesNeeded - (fullBottlesNeeded |> toFloatMeasure)
     let partialCups = partialBottlesNeeded * litersInLargeLiquorBottle * fluidOzPerLiter * cupsPerFlOz
     { Whole = fullBottlesNeeded; Part = partialCups }
 
