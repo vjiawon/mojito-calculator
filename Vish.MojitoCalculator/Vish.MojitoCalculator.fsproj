@@ -57,7 +57,8 @@
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="UnitOfMeasureHelpers.fs" />
     <Compile Include="Measurements.fs" />
-    <Compile Include="Types.fs" />
+    <Compile Include="MojitoRecipeCalculations.fs" />
+    <Compile Include="MojitoTypes.fs" />
     <Compile Include="Program.fs" />
     <None Include="App.config" />
     <Content Include="packages.config" />

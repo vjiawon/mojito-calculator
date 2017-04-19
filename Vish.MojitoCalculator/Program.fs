@@ -9,13 +9,6 @@ open System.IO
 open UnitOfMeasureHelpers
 open Types
 
-let buildShoppingList (parts: MojitoRecipeParts<fluidOunce>) =   
-    { Rum = parts.Rum / fluidOzPerLiter / litersInLargeLiquorBottle |> roundUpMeasure;
-      Soda = parts.Soda / fluidOzPerLiter |> roundDownMeasure;
-      Limes = parts.LimeJuice / flOzJuicePerLime / limesPerLb |> toIntMeasure;
-      Sugar = parts.SimpleSyrup * cupsPerFlOz * cupsSugarPerCup / cupsSugarPerLb |> roundUpMeasure;
-      Mint = parts.SimpleSyrup * cupsPerFlOz / cupsPerBunchMint * ozPerBunchMint |> roundUpMeasure; }
-
 let shoppingListTextFormatter (tw: TextWriter) (list: ShoppingList) = 
     tw.WriteLine("{0} large liquor bottles rum", list.Rum)
     tw.WriteLine("{0} liters soda", list.Soda)
@@ -42,7 +35,7 @@ let main argv =
     
     let amountsNeeded = { BasePart = onePart }
 
-    let shoppingList = buildShoppingList amountsNeeded
+    let shoppingList = { Parts = amountsNeeded }
     
     let mojitoRecipe = { Amounts = amountsNeeded }   
 
