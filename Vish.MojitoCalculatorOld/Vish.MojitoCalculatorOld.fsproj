@@ -8,7 +8,7 @@
     <ProjectGuid>7e591fcd-288d-4b75-90c9-c65608f44ce8</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Vish.MojitoCalculator</RootNamespace>
-    <AssemblyName>Vish.MojitoCalculator</AssemblyName>
+    <AssemblyName>Vish.MojitoCalculatorOld</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
