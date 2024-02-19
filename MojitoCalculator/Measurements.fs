@@ -5,6 +5,9 @@ open LanguagePrimitives
 [<Measure>] type oz
 [<Measure>] type lb
 
+// type metric weights
+[<Measure>] type gram
+
 // imperial volumes
 [<Measure>] type gallon
 [<Measure>] type fluidOz
@@ -45,3 +48,11 @@ let cupsSugarPerLb = 2.25<cupOfSugar/lb>
 
 let ozPerBunchMint = 3.2<oz/bunchOfMint>
 let cupsPerBunchMint = 1.5<cup/bunchOfMint>
+
+// super juice ratios
+let limePeelToLiterSuperJuice = 60.1<gram/liter>
+let citricAcidToLiterSuperJuice = 39.7<gram/liter>
+let malicAcidToLiterSuperJuice = 19.9<gram/liter>
+let waterToLiterSuperJuice = 1000.0<gram/liter>
+
+let gramsLimeZestPerLime = 0.5<gram/lime>

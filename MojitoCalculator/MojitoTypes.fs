@@ -1,9 +1,17 @@
 module MojitoCalculator.MojitoTypes
 
 open Measurements
+open MojitoCalculator.Measurements
 open UnitOfMeasureHelpers
 open Microsoft.FSharp.Core.LanguagePrimitives
 open MojitoCalculator.MojitoRecipeCalculations
+
+type SuperJuiceRecipe =
+    { Amount: float<liter> }
+    member this.LimePeel = limePeelToLiterSuperJuice * this.Amount
+    member this.CitricAcid = citricAcidToLiterSuperJuice * this.Amount
+    member this.MalicAcid = malicAcidToLiterSuperJuice * this.Amount
+    member this.Water = waterToLiterSuperJuice * this.Amount
 
 type MojitoRecipeParts<[<Measure>] 'u> = 
     { BasePart: float<'u> }
@@ -32,3 +40,8 @@ type MojitoRecipe =
     member this.Soda = calculateSodaForMojitos this.Amounts.Soda
     member this.SimpleSyrup = { Amount = this.Amounts.SimpleSyrup }
     member this.LimeJuice = calculateLimeJuiceForMojitos this.Amounts.LimeJuice
+    member this.SuperJuice: SuperJuiceRecipe =  { Amount = 1.0/fluidOzPerLiter * this.Amounts.LimeJuice }
+
+        
+// 8limes/1L Juice = x limes / Amount Liters super juice
+// 8limes * Amount Liters = num limes 
