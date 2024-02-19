@@ -1,9 +1,9 @@
-﻿module Types
+module MojitoCalculator.MojitoTypes
 
 open Measurements
 open UnitOfMeasureHelpers
 open Microsoft.FSharp.Core.LanguagePrimitives
-open Calculations
+open MojitoCalculator.MojitoRecipeCalculations
 
 type MojitoRecipeParts<[<Measure>] 'u> = 
     { BasePart: float<'u> }
@@ -13,7 +13,7 @@ type MojitoRecipeParts<[<Measure>] 'u> =
     member this.LimeJuice = this.BasePart
      
 type ShoppingList = 
-    { Parts: MojitoRecipeParts<fluidOunce>; }
+    { Parts: MojitoRecipeParts<fluidOz>; }
     member this.Rum = this.Parts.Rum / fluidOzPerLiter / litersInLargeLiquorBottle |> roundUpMeasure
     member this.Soda = this.Parts.Soda / fluidOzPerLiter |> roundUpMeasure
     member this.Limes = this.Parts.LimeJuice / flOzJuicePerLime / limesPerLb |> toIntMeasure
@@ -21,13 +21,13 @@ type ShoppingList =
     member this.Mint = this.Parts.SimpleSyrup * cupsPerFlOz / cupsPerBunchMint * ozPerBunchMint |> roundUpMeasure
 
 type SimpleSyrupRecipe = 
-    { Amount: float<fluidOunce>; }
+    { Amount: float<fluidOz>; }
     member this.Water = calculateWaterForSimpleSyrup this.Amount
     member this.Sugar = calculateSugarForSimpleSyrup this.Amount
     member this.Mint = calculateMintForSimpleSyrup this.Amount
     
 type MojitoRecipe = 
-    { Amounts: MojitoRecipeParts<fluidOunce>; }
+    { Amounts: MojitoRecipeParts<fluidOz>; }
     member this.Rum = calculateRumForMojitos this.Amounts.Rum
     member this.Soda = calculateSodaForMojitos this.Amounts.Soda
     member this.SimpleSyrup = { Amount = this.Amounts.SimpleSyrup }

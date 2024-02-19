@@ -1,4 +1,4 @@
-﻿module UnitOfMeasureHelpers
+module MojitoCalculator.UnitOfMeasureHelpers
 
 open Microsoft.FSharp.Core.LanguagePrimitives
 

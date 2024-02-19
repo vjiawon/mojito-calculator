@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Vish.MojitoCalculatorOld", "Vish.MojitoCalculatorOld\Vish.MojitoCalculatorOld.fsproj", "{7E591FCD-288D-4B75-90C9-C65608F44CE8}"
-EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "MojitoCalculator", "MojitoCalculator\MojitoCalculator.fsproj", "{640CCE68-5F03-4708-93C5-CDA9DA0ACB20}"
 EndProject
 Global
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7E591FCD-288D-4B75-90C9-C65608F44CE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7E591FCD-288D-4B75-90C9-C65608F44CE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7E591FCD-288D-4B75-90C9-C65608F44CE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7E591FCD-288D-4B75-90C9-C65608F44CE8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{640CCE68-5F03-4708-93C5-CDA9DA0ACB20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{640CCE68-5F03-4708-93C5-CDA9DA0ACB20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{640CCE68-5F03-4708-93C5-CDA9DA0ACB20}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -7,15 +7,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Program.fs"/>
-    </ItemGroup>
-
-    <ItemGroup>
       <Content Include="..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
       <Content Include="Dockerfile" />
       <Compile Include="Measurements.fs" />
+      <Compile Include="UnitOfMeasureHelpers.fs" />
+      <Compile Include="MojitoRecipeCalculations.fs" />
+      <Compile Include="MojitoTypes.fs" />
+      <Compile Include="Program.fs" />
     </ItemGroup>
 
 </Project>
