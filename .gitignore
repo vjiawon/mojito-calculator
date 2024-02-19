@@ -227,3 +227,5 @@ tests/fsharpqa/testenv/bin/System.ValueTuple.dll
 lib/netcore/fsc/bin/
 
 !lib/bootstrap/signed/**/*
+
+.idea/
