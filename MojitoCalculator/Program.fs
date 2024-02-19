@@ -26,8 +26,10 @@ let mojitoRecipeTextFormatter (tw: TextWriter) (m: MojitoRecipe) =
 [<EntryPoint>]
 let main argv = 
     printfn $"%A{argv}"
+    
+    let gallonsofMojitoToMake = argv[0] |> float
 
-    let onePart = 4.5 * 1.0<gallon> * fluidOzPerGallon / 7.0
+    let onePart = gallonsofMojitoToMake * 1.0<gallon> * fluidOzPerGallon / 7.0
     
     let amountsNeeded = { BasePart = onePart }
 
