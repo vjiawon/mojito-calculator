@@ -29,6 +29,9 @@ let main argv =
     
     let gallonsofMojitoToMake = argv[0] |> float
 
+    // the mojito ratio is 3 parts run to two parts seltzer to 1 part lime to 1 part mint syrup
+    // 3 + 2 + 1 + 1 = 7.
+    // Each part is 1/7 of the recipe 
     let onePart = gallonsofMojitoToMake * 1.0<gallon> * fluidOzPerGallon / 7.0
     
     let amountsNeeded = { BasePart = onePart }
