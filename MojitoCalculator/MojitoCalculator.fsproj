@@ -11,10 +11,11 @@
         <Link>.dockerignore</Link>
       </Content>
       <Content Include="Dockerfile" />
-      <Compile Include="Measurements.fs" />
       <Compile Include="UnitOfMeasureHelpers.fs" />
+      <Compile Include="Measurements.fs" />
       <Compile Include="MojitoRecipeCalculations.fs" />
       <Compile Include="MojitoTypes.fs" />
+      <Compile Include="TextFormatters.fs" />
       <Compile Include="Program.fs" />
     </ItemGroup>
 
