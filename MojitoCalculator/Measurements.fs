@@ -55,4 +55,4 @@ let gramsCitricAcidPerLiterSuperJuice = 39.7<gram/liter>
 let gramsMalicAcidPerLiterSuperJuice = 19.9<gram/liter>
 let gramsWaterPerLiterSuperJuice = 1000.0<gram/liter>
 
-let gramsLimeZestPerLime = 2.0<gram/lime>
+let gramsLimeZestPerLime = 9.0<gram/lime>

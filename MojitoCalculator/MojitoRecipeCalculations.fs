@@ -44,3 +44,18 @@ let calculateLimeJuiceForMojitos (limeJuiceNeeded: float<liter>) =
     let wholeCupsNeeded = cupsNeeded |> roundDownMeasure
     let partialCupsNeeded = cupsNeeded - (wholeCupsNeeded |> toFloatMeasure)
     { Whole = wholeCupsNeeded; Part = partialCupsNeeded; Total = limeJuiceNeeded }
+    
+let calculateSimpleSyrupForMojitos (simpleSyrupNeeded: float<liter>) =
+    let cupsNeeded = simpleSyrupNeeded * cupsPerLiter
+    let wholeCupsNeeded = cupsNeeded |> roundDownMeasure
+    let partialCupsNeeded = cupsNeeded - (wholeCupsNeeded |> toFloatMeasure)
+    { Whole = wholeCupsNeeded; Part = partialCupsNeeded; Total = simpleSyrupNeeded }
+    
+let calculateCupsNeededForLiters (l: float<liter>) =
+    let cupsNeeded = l * cupsPerLiter
+    let wholeCupsNeeded = cupsNeeded |> roundDownMeasure
+    let partialCupsNeeded = cupsNeeded - (wholeCupsNeeded |> toFloatMeasure)
+    { Whole = wholeCupsNeeded; Part = partialCupsNeeded; Total = l }
+    // calculateWaterForSimpleSyrup, calculateSugarForSimpleSyrup, calculateSodaForMojitos
+    // calculateLimeJuiceForMojitos, calculateSimpleSyrupForMojitos
+    // all have comonalities 
