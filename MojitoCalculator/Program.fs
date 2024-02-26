@@ -1,6 +1,5 @@
 ﻿// For more information see https://aka.ms/fsharp-console-apps
 // I need 1 bunch of mint for 1.5 cups of simple syrup
-open Microsoft.VisualBasic.CompilerServices
 open MojitoCalculator.Measurements
 open MojitoCalculator.UnitOfMeasureHelpers
 open MojitoCalculator.MojitoRecipeCalculations
@@ -69,6 +68,15 @@ let main argv =
     printfn $"\t%f{citricAcidNeededForSuperJuice} grams of citric acid."
     printfn $"\t%f{malicAcidNeededForSuperJuice} grams of malic acid."
     printfn $"\t%i{waterNeededForSuperJuice.Whole} and %f{waterNeededForSuperJuice.Part} cups of water for a total of %f{waterNeededForSuperJuice.Total} liters."
+    printfn ""
+    
+    // shopping list
+    printfn $"To make all of this you will need:"
+    printfn $"\t%i{bottlesRumToBuy} 1.5L bottles of rum."
+    printfn $"\t%i{literBottlesOfSodaToBuy} 1L bottles of soda."
+    printfn $"\t%f{lbsLimesToBuy} lbs of limes."
+    printfn $"\t%f{lbsSugarToBuy} lbs of sugar."
+    
     //
     // let amountsNeeded = { BasePart = onePart }
     // let mojitoRecipe = { Amounts = amountsNeeded }   
