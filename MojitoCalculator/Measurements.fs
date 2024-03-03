@@ -50,9 +50,8 @@ let ozPerBunchMint = 3.2<oz/bunchOfMint>
 let cupsPerBunchMint = 1.5<cup/bunchOfMint>
 
 // super juice ratios
-let gramsLimePeelPerLiterSuperJuice = 60.1<gram/liter>
-let gramsCitricAcidPerLiterSuperJuice = 39.7<gram/liter>
-let gramsMalicAcidPerLiterSuperJuice = 19.9<gram/liter>
-let gramsWaterPerLiterSuperJuice = 1000.0<gram/liter>
+let limePeelPerLiterSuperJuice = 100.0<gram/liter>
+let gramsCitricAcidPerLiterSuperJuice = 44.0<gram/liter>
+let gramsMalicAcidPerLiterSuperJuice = 7.0<gram/liter>
 
 let gramsLimeZestPerLime = 9.0<gram/lime>

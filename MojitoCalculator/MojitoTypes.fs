@@ -5,19 +5,15 @@ open MojitoCalculator.Measurements
 open UnitOfMeasureHelpers
 open MojitoCalculator.MojitoRecipeCalculations
     
-type MojitoRecipeParts<[<Measure>] 'u> = 
-    { BasePart: float<'u> }
-    member this.Rum = this.BasePart * 3.0
-    member this.Soda = this.BasePart * 2.0
-    member this.SimpleSyrup = this.BasePart
-    member this.LimeJuice = this.BasePart
+type MojitoRecipeParts<[<Measure>] 'u> = {
+    Rum: float<'u>
+    Soda: float<'u>
+    LimeJuice: float<'u>
+    SimpleSyrup: float<'u>
+}
   
 type SuperJuiceRecipe =
-    { Amount: float<liter> }
-    member this.LimePeel = gramsLimePeelPerLiterSuperJuice * this.Amount
-    member this.CitricAcid = gramsCitricAcidPerLiterSuperJuice * this.Amount
-    member this.MalicAcid = gramsMalicAcidPerLiterSuperJuice * this.Amount
-    member this.Water = gramsWaterPerLiterSuperJuice * this.Amount
+    { LimePeel: float<gram>; CitricAcid: float<gram>; MalicAcid: float<gram>; Water: Ingredient<cup, cup, liter> }
      
 type ShoppingList = 
     { Parts: MojitoRecipeParts<liter>; LimePeel: float<gram>}
@@ -29,10 +25,10 @@ type ShoppingList =
     member this.Mint = this.Parts.SimpleSyrup * cupsPerFlOz / cupsPerBunchMint * ozPerBunchMint |> roundUpMeasure
 
 type SimpleSyrupRecipe = 
-    { Amount: float<liter>; }
-    member this.Water = calculateWaterForSimpleSyrup this.Amount
-    member this.Sugar = calculateSugarForSimpleSyrup this.Amount
-    member this.Mint = calculateMintForSimpleSyrup this.Amount
+    { Water: Ingredient<cup, cup, liter>; Sugar: Ingredient<cupOfSugar, cupOfSugar, liter>; Mint: float<oz> }
+    // member this.Water = calculateWaterForSimpleSyrup this.Amount
+    // member this.Sugar = calculateSugarForSimpleSyrup this.Amount
+    // member this.Mint = calculateMintForSimpleSyrup this.Amount
     
 type MojitoRecipe = 
     { Amounts: MojitoRecipeParts<liter>; }
