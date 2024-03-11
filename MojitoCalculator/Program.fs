@@ -24,16 +24,32 @@ let calculateSimpleSyrupRecipe (total: float<liter>): SimpleSyrupRecipe =
       Sugar = calculateSugarForSimpleSyrup total
       Mint = calculateMintForSimpleSyrup total }
 
+let calculateShoppingList (limePeel: float<gram>)
+    (sugar: Ingredient<cupOfSugar,cupOfSugar,liter>)
+    (soda: float<liter>)
+    (rum: float<liter>)
+    (simpleSyrup: float<liter>): ShoppingList =
+    // todo - calculate 1.5 l vs 750ml. Bottles of rum can be 1.5L vs 750ml
+    // todo - calculate 1 vs 2 l bottles soda
+    { BottlesRum =  rum   / litersInLargeLiquorBottle |> roundUpMeasure;
+      Soda =  soda |> roundUpMeasure |> int;
+      Limes = limePeel * (1.0/gramsLimeZestPerLime) / limesPerLb;
+      Sugar = sugar.Total * cupsPerLiter * cupsSugarPerCup * (1.0/cupsSugarPerLb);
+      Mint = simpleSyrup * cupsPerLiter / cupsPerBunchMint * ozPerBunchMint |> roundUpMeasure;
+    }
+
 [<EntryPoint>]
 let main argv = 
     printfn $"%A{argv}"
     
     let gallonsofMojitoToMake: float<gallon> = argv[0] |> float |> LanguagePrimitives.FloatWithMeasure
     
+    // the recipes. overallMojitoRecipe should also be ingredient type
     let overallMojitoRecipe = calculateMojitoParts gallonsofMojitoToMake    
     let superJuiceRecipe = calculateSuperJuiceRecipe overallMojitoRecipe.LimeJuice
     let simpleSyrupRecipe = calculateSimpleSyrupRecipe overallMojitoRecipe.SimpleSyrup
-        
+      
+    // the shopping list   
     let numberOfLimesToBuy = superJuiceRecipe.LimePeel * (1.0/gramsLimeZestPerLime)
     
     let lbsLimesToBuy: float<lb> = numberOfLimesToBuy / limesPerLb
@@ -69,13 +85,10 @@ let main argv =
     printfn ""
     
     // shopping list
-    // todo - calculate 1.5 l vs 750ml. Bottles of rum can be 1.5L vs 750ml
-    let bottlesRumToBuy = overallMojitoRecipe.Rum * (1.0/fluidOzPerLiter) * (1.0/litersInLargeLiquorBottle) |> roundUpMeasure
-    // todo - calculate 1 vs 2 l bottles 
-    let literBottlesOfSodaToBuy = overallMojitoRecipe.Soda |> roundUpMeasure
+    let shoppingList = calculateShoppingList superJuiceRecipe.LimePeel simpleSyrupRecipe.Sugar overallMojitoRecipe.Soda overallMojitoRecipe.Rum overallMojitoRecipe.SimpleSyrup
     printfn $"To make all of this you will need:"
-    printfn $"\t%i{bottlesRumToBuy} 1.5L bottles of rum."
-    printfn $"\t%i{literBottlesOfSodaToBuy} 1L bottles of soda."
+    printfn $"\t%i{shoppingList.BottlesRum} 1.5L bottles of rum."
+    printfn $"\t%i{shoppingList.Soda} 1L bottles of soda."
     printfn $"\t%f{lbsLimesToBuy} lbs of limes."
     printfn $"\t%f{lbsSugarToBuy} lbs of sugar."
     
